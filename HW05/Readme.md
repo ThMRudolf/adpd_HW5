@@ -101,10 +101,6 @@ in data/numerical_cols_train.txt
 ├── main.py
 ├── src
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-311.pyc
-│   │   ├── prep.cpython-311.pyc
-│   │   └── train.cpython-311.pyc
 │   ├── inference.py
 │   ├── predict_house_prices.py
 │   ├── prep.py

@@ -22,6 +22,7 @@ The project can be run in docker. The only softare need is **Docker Desktoop**. 
 
 Docker *train mode* (Dockerfile.train)
 --------------------------------------
+Dockerfile: 
 FROM continuumio/miniconda3
 WORKDIR /usr/src/app
 
@@ -44,6 +45,8 @@ to train the  model:
 
 Docker *inference mode* (Dockerfile.inference)
 ----------------------------------------------
+Dockerfile:
+
 FROM continuumio/miniconda3
 WORKDIR /usr/src/app
 
