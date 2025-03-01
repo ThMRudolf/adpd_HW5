@@ -1,8 +1,8 @@
-src
-===
+API Documentation
+=================
 
-.. toctree::
-   :maxdepth: 4
+1. Prepare data
 
-   prep
-   train
+.. autofunction:: src.prep.read_data()
+
+2. Train model

@@ -38,59 +38,10 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="prep.html">prep module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="train.html">train module</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Installation and how to use this project:</a></li>
 </ul>
 </div>
-</section>
-<section id="how-to-use-this-project">
-<h1>How to use this project:<a class="headerlink" href="#how-to-use-this-project" title="Link to this heading">¶</a></h1>
-<p>The project can be run in docker. The only softare need is <strong>Docker Desktoop</strong>. (<a class="reference external" href="https://docs.docker.com/get-started/get-docker/">https://docs.docker.com/get-started/get-docker/</a>)</p>
-<section id="docker-train-mode-dockerfile-train">
-<h2>Docker <em>train mode</em> (Dockerfile.train)<a class="headerlink" href="#docker-train-mode-dockerfile-train" title="Link to this heading">¶</a></h2>
-<p>Dockerfile:
-FROM continuumio/miniconda3
-WORKDIR /usr/src/app</p>
-<p>COPY ../main.py .
-COPY ../src ./src
-COPY ../data ./data
-COPY ../environments.yml .</p>
-<p>RUN conda env create -f environments.yml
-RUN conda clean –all -y</p>
-<p>ENV PATH /opt/conda/envs/arquitectura/bin:$PATH</p>
-<p>ENTRYPOINT [“python”, “main.py”]
-CMD [”–input”,”data/prep”, “–output”, “data/inference/house_pricing_model.pkl” ]</p>
-<dl class="simple">
-<dt>to train the  model:</dt><dd><ul class="simple">
-<li><p>docker build -t train_image -f Dockerfile.train .</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="docker-inference-mode-dockerfile-inference">
-<h2>Docker <em>inference mode</em> (Dockerfile.inference)<a class="headerlink" href="#docker-inference-mode-dockerfile-inference" title="Link to this heading">¶</a></h2>
-<p>Dockerfile:</p>
-<p>FROM continuumio/miniconda3
-WORKDIR /usr/src/app</p>
-<p>COPY ../src/inference.py .
-COPY ../src ./src
-COPY ../data/inference ./data/inference
-COPY ../environments.yml .</p>
-<p>RUN conda env create -f environments.yml
-RUN conda clean –all -y</p>
-<p>ENV PATH /opt/conda/envs/arquitectura/bin:$PATH</p>
-<p>ENTRYPOINT [“python”, “inference.py”]
-CMD [”–input”, “data/inference/house_pricing_model.pkl”, “–output”, “data/inference/results.csv” ]</p>
-<dl class="simple">
-<dt>to execute the model:</dt><dd><ul class="simple">
-<li><p>docker build -t train_image -f Dockerfile.inference .</p></li>
-</ul>
-</dd>
-</dl>
-</section>
 </section>
 
 
@@ -113,7 +64,8 @@ CMD [”–input”, “data/inference/house_pricing_model.pkl”, “–output�
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Installation and how to use this project:</a></li>
 </ul>
 
 <div class="relations">

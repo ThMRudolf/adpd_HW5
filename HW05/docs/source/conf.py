@@ -16,8 +16,10 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))  # Ensure Sphinx can find your code
 # Add the 'src' directory to the Python path
-sys.path.insert(0, os.path.abspath('../src'))
+sys.path.insert(0, os.path.abspath('../../src'))
 
+#print('path:')
+#print(os.path.abspath('HW05/src'))
 
 extensions = [
     'sphinx.ext.autodoc',     # Automatically extracts docstrings
