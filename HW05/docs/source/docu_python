@@ -1,0 +1,16 @@
+
+Docker to use the model
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Docker to train the model
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The data base
+-------------
+
+Python function to prepare data
+-------------------------------
+
+
+Python function to train, test and validate the model
+-----------------------------------------------------

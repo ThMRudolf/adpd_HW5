@@ -1,0 +1,15 @@
+FROM continuumio/miniconda3
+WORKDIR /usr/src/app
+
+COPY ../src/inference.py .
+COPY ../src ./src
+COPY ../data/inference ./data/inference
+COPY ../environments.yml .
+
+RUN conda env create -f environments.yml 
+RUN conda clean --all -y
+
+ENV PATH /opt/conda/envs/arquitectura/bin:$PATH
+
+ENTRYPOINT ["python", "inference.py"]
+CMD ["--input", "data/inference/house_pricing_model.pkl", "--output", "data/inference/results.csv" ]

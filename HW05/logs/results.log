@@ -1,0 +1,20 @@
+root .ERROR - Exception occurred during data allocation: name 'TRAIN_LOC_STR' is not defined
+root .DEBUG - name 'TRAIN_LOC_STR' is not defined
+root .ERROR - Error occurred during hanlding missing datan: name 'train_df' is not defined
+root .DEBUG - name 'train_df' is not defined
+root .ERROR - Error occurred during data preparation: name 'train_df' is not defined
+root .DEBUG - name 'train_df' is not defined
+root .ERROR - Error occurred during data split: name 'x' is not defined
+root .DEBUG - name 'x' is not defined
+root .ERROR - Error occurred during data saving x_train: name 'x_train' is not defined
+root .DEBUG - name 'x_train' is not defined
+root .ERROR - Error occurred during data saving y_train: name 'y_train' is not defined
+root .DEBUG - name 'y_train' is not defined
+root .ERROR - Error occurred during data saving x_valid: name 'x_valid' is not defined
+root .DEBUG - name 'x_valid' is not defined
+root .ERROR - Error occurred during data saving y_valid: name 'y_valid' is not defined
+root .DEBUG - name 'y_valid' is not defined
+root .ERROR - Error occurred during test model: name 'test_df' is not defined
+root .DEBUG - name 'test_df' is not defined
+root .ERROR - Error occurred during model validation: could not convert string to float: 'RL'
+root .DEBUG - could not convert string to float: 'RL'
