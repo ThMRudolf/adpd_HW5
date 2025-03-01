@@ -15,3 +15,50 @@ In this home work (HW) I am trying to put the former results into a docker envir
    
    intro
    modules
+
+How to use this project:
+========================
+The project can be run in docker. The only softare need is **Docker Desktoop**. (https://docs.docker.com/get-started/get-docker/)
+
+Docker *train mode* (Dockerfile.train)
+--------------------------------------
+FROM continuumio/miniconda3
+WORKDIR /usr/src/app
+
+COPY ../main.py .
+COPY ../src ./src
+COPY ../data ./data
+COPY ../environments.yml .
+
+RUN conda env create -f environments.yml 
+RUN conda clean --all -y
+
+ENV PATH /opt/conda/envs/arquitectura/bin:$PATH
+
+ENTRYPOINT ["python", "main.py"]
+CMD ["--input","data/prep", "--output", "data/inference/house_pricing_model.pkl" ]
+
+
+to train the  model: 
+ - docker build -t train_image -f Dockerfile.train .
+
+Docker *inference mode* (Dockerfile.inference)
+----------------------------------------------
+FROM continuumio/miniconda3
+WORKDIR /usr/src/app
+
+COPY ../src/inference.py .
+COPY ../src ./src
+COPY ../data/inference ./data/inference
+COPY ../environments.yml .
+
+RUN conda env create -f environments.yml 
+RUN conda clean --all -y
+
+ENV PATH /opt/conda/envs/arquitectura/bin:$PATH
+
+ENTRYPOINT ["python", "inference.py"]
+CMD ["--input", "data/inference/house_pricing_model.pkl", "--output", "data/inference/results.csv" ]
+
+to execute the model:
+ - docker build -t train_image -f Dockerfile.inference .

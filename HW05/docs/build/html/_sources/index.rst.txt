@@ -15,3 +15,17 @@ In this home work (HW) I am trying to put the former results into a docker envir
    
    intro
    modules
+
+How to use this project:
+========================
+The project can be run in docker. The only softare need is **Docker Desktoop**. (https://docs.docker.com/get-started/get-docker/)
+
+Docker *train mode*
+-------------------
+to train the  model: 
+ - docker build -t train_image -f Dockerfile.train .
+
+Docker *inference mode*
+-----------------------
+to execute the model:
+ - docker build -t train_image -f Dockerfile.inference .
