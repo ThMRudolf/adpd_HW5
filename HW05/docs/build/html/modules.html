@@ -34,12 +34,192 @@
             
   <section id="api-documentation">
 <h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading">¶</a></h1>
-<ol class="arabic simple">
-<li><p>Prepare data</p></li>
-</ol>
-<ol class="arabic simple" start="2">
-<li><p>Train model</p></li>
-</ol>
+<section id="prepare-data">
+<h2>1. Prepare data<a class="headerlink" href="#prepare-data" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="prep.read_data">
+<span class="sig-prename descclassname"><span class="pre">prep.</span></span><span class="sig-name descname"><span class="pre">read_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/prep.html#read_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#prep.read_data" title="Link to this definition">¶</a></dt>
+<dd><p>This fcn read a csv file: it can read test data, train data.
+:param location_str: file location of the csv file
+:type location_str: str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>data frame with data (e.g. train or test)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>df (dataframe)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prep.select_numerical">
+<span class="sig-prename descclassname"><span class="pre">prep.</span></span><span class="sig-name descname"><span class="pre">select_numerical</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/prep.html#select_numerical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#prep.select_numerical" title="Link to this definition">¶</a></dt>
+<dd><p>Selects only numerical columns from the DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>dataframe</em>) – DataFrame from which numerical columns are to be selected.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame containing only numerical columns.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prep.select_categorical">
+<span class="sig-prename descclassname"><span class="pre">prep.</span></span><span class="sig-name descname"><span class="pre">select_categorical</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/prep.html#select_categorical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#prep.select_categorical" title="Link to this definition">¶</a></dt>
+<dd><p>Selects only categorical columns from the DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>dataframe</em>) – DataFrame from which categorical columns are to be selected.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame containing only categorical columns.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prep.split_train_data">
+<span class="sig-prename descclassname"><span class="pre">prep.</span></span><span class="sig-name descname"><span class="pre">split_train_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/prep.html#split_train_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#prep.split_train_data" title="Link to this definition">¶</a></dt>
+<dd><p>Estimates the house price depending on different inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> – Train data.</p></li>
+<li><p><strong>test</strong> – Test data.</p></li>
+<li><p><strong>sample</strong> – Sales prices of test data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a DataFrame that contains the estimated price,
+the real price of the test data houses, and the absolute
+and percentage differences of real value and estimated values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prep.save_prep_data_2_prep">
+<span class="sig-prename descclassname"><span class="pre">prep.</span></span><span class="sig-name descname"><span class="pre">save_prep_data_2_prep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/prep.html#save_prep_data_2_prep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#prep.save_prep_data_2_prep" title="Link to this definition">¶</a></dt>
+<dd><p>Takes a DataFrame and tne name. The df is separeted in
+x and y data and numercial and categorical values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – DataFrame from which categorical columns are to be selected.</p></li>
+<li><p><strong>name</strong> – ‘train’ or ‘test’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>no return values. Saves the DataFrame for train, test and the
+numerical and categorical information to ../data/prep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prep.save_col_name">
+<span class="sig-prename descclassname"><span class="pre">prep.</span></span><span class="sig-name descname"><span class="pre">save_col_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/prep.html#save_col_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#prep.save_col_name" title="Link to this definition">¶</a></dt>
+<dd><p>Save numerical and categorical column names to separate text files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numerical_cols</strong> (<em>list</em><em> of </em><em>str</em>) – List of numerical column names.</p></li>
+<li><p><strong>categorical_cols</strong> (<em>list</em><em> of </em><em>str</em>) – List of categorical column names.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – A name to append to the filenames for saving the columns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>The function creates two text files:</dt><dd><ul class="simple">
+<li><p>‘data/prep/numerical_cols_&lt;name&gt;.txt’ containing the numerical column names.</p></li>
+<li><p>‘data/prep/categorical_cols_&lt;name&gt;.txt’ containing the categorical column names.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Each column name is written on a new line in the respective file.</p>
+</dd></dl>
+
+</section>
+<section id="train-model">
+<h2>2. Train model<a class="headerlink" href="#train-model" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="train.build_model_estimate_house_pricing">
+<span class="sig-prename descclassname"><span class="pre">train.</span></span><span class="sig-name descname"><span class="pre">build_model_estimate_house_pricing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/train.html#build_model_estimate_house_pricing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train.build_model_estimate_house_pricing" title="Link to this definition">¶</a></dt>
+<dd><p>Builds the preprocessing pipeline and the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>dataframe</em>) – DataFrame containing the features.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A pipeline with preprocessing and model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pipeline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="train.fit_house_pricing_models">
+<span class="sig-prename descclassname"><span class="pre">train.</span></span><span class="sig-name descname"><span class="pre">fit_house_pricing_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/train.html#fit_house_pricing_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train.fit_house_pricing_models" title="Link to this definition">¶</a></dt>
+<dd><p>fits the house price depending on different inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> (<em>sklearn pipeline</em>) – build model for house price estimation.</p></li>
+<li><p><strong>x_train</strong> (<em>dataframe</em>) – input data to train/fit the model</p></li>
+<li><p><strong>y_train</strong> (<em>dataframe</em>) – output data to train/fit the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a fitted model (pipeline) to estimated price,</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="train.estimation_test">
+<span class="sig-prename descclassname"><span class="pre">train.</span></span><span class="sig-name descname"><span class="pre">estimation_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/train.html#estimation_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train.estimation_test" title="Link to this definition">¶</a></dt>
+<dd><p>test the fitted model
+:param pipeline: model for house price estimation.
+:type pipeline: sklearn pipeline
+:param df: test data
+:type df: dataframe
+:param target_str: variable to be estimated, “SalePrice”
+:type target_str: str</p>
+<p>Return: no return data, just a model score value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="train.validate_estimation_house_pricing">
+<span class="sig-prename descclassname"><span class="pre">train.</span></span><span class="sig-name descname"><span class="pre">validate_estimation_house_pricing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/train.html#validate_estimation_house_pricing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train.validate_estimation_house_pricing" title="Link to this definition">¶</a></dt>
+<dd><p>Makes predictions and evaluates the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> (<em>sklearn pipeline</em>) – The fitted pipeline.</p></li>
+<li><p><strong>X_valid</strong> (<em>dataframe</em>) – Validation features.</p></li>
+<li><p><strong>y_valid</strong> (<em>dataframe</em>) – Validation target variable.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Predictions.
+mae: Mean Absolute Error.
+mape: Mean Absolute Percentage Error.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>preds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -62,7 +242,11 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-data">1. Prepare data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#train-model">2. Train model</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="howto.html">Installation and how to use this project:</a></li>
 </ul>
 

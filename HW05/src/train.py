@@ -17,9 +17,8 @@ def build_model_estimate_house_pricing(x):
     """
     Builds the preprocessing pipeline and the model.
 
-    Params:
-        numerical_cols: List of numerical columns.
-        categorical_cols: List of categorical columns.
+    Args: 
+        x (dataframe): DataFrame containing the features.
 
     Returns:
         pipeline: A pipeline with preprocessing and model.
@@ -61,10 +60,10 @@ def fit_house_pricing_models(pipeline,
     """
     fits the house price depending on different inputs.
 
-    Params:
-        pipeline: build model for house price estimation.
-        x_train: input data to train/fit the model
-        y_train: output data to train/fit the model
+    Args: 
+        pipeline (sklearn pipeline): build model for house price estimation.
+        x_train (dataframe): input data to train/fit the model
+        y_train (dataframe): output data to train/fit the model
 
     Returns:
         Returns a fitted model (pipeline) to estimated price, 
@@ -79,10 +78,10 @@ def fit_house_pricing_models(pipeline,
 def estimation_test(pipeline, x, y):
     """
     test the fitted model
-    Params:
-        pipeline: model for house price estimation.
-        df: test data 
-        target_str: variable to be estimated, "SalePrice"
+    Args: 
+        pipeline (sklearn pipeline): model for house price estimation.
+        df (dataframe): test data 
+        target_str (str): variable to be estimated, "SalePrice"
     Return: no return data, just a model score value.
     """
     print("model score: %.3f" % pipeline.score(x, y))
@@ -91,10 +90,10 @@ def validate_estimation_house_pricing(pipeline, x_valid, y_valid):
     """
     Makes predictions and evaluates the model.
 
-    Params:
-        pipeline: The fitted pipeline.
-        X_valid: Validation features.
-        y_valid: Validation target variable.
+    Args:
+        pipeline (sklearn pipeline): The fitted pipeline.
+        X_valid (dataframe): Validation features.
+        y_valid (dataframe): Validation target variable.
 
     Returns:
         preds: Predictions.

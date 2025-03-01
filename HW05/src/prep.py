@@ -19,14 +19,13 @@ from sklearn.model_selection import train_test_split
 # Load the datasets
 def read_data(location_str, plot_info=False):
     """
+
     This fcn read a csv file: it can read test data, train data.
-    Parameters:
-    -----------
-    location_str: str
-            file location of the csv file
+    Args:
+        location_str (str): file location of the csv file
     Returns:
-        df:
-            data frame with data (e.g. train or test) 
+        df (dataframe): data frame with data (e.g. train or test) 
+
     """
     df = pd.read_csv(location_str)
     if 'Id' in df.columns:
@@ -42,8 +41,8 @@ def select_numerical(df):
     """
     Selects only numerical columns from the DataFrame.
 
-    Params:
-        df: DataFrame from which numerical columns are to be selected.
+    Args:
+        df (dataframe): DataFrame from which numerical columns are to be selected.
 
     Returns:
         DataFrame containing only numerical columns.
@@ -57,8 +56,8 @@ def select_categorical(df):
     """
     Selects only categorical columns from the DataFrame.
 
-    Params:
-        df: DataFrame from which categorical columns are to be selected.
+    Args:
+        df (dataframe): DataFrame from which categorical columns are to be selected.
 
     Returns:
         DataFrame containing only categorical columns.
@@ -70,17 +69,19 @@ def select_categorical(df):
 # drop 'SalePrice' column from input matrix and define it as output vector y
 def prepare_train_data(df, target_str='SalePrice'):
     """
+
     Prepares the data for training by separating the target variable and features,
     and identifying numerical and categorical columns.
 
-    Params:
-        train: Training data.
+    PArgs:
+        train (dataframe): Training data.
 
     Returns:
         X: Features.
         y: Target variable.
         numerical_cols: List of numerical columns.
         categorical_cols: List of categorical columns.
+
     """
     x = df.drop(target_str, axis=1)
     y = df[target_str]
@@ -90,9 +91,10 @@ def prepare_train_data(df, target_str='SalePrice'):
 
 def split_train_data(x, y):
     """
+
     Estimates the house price depending on different inputs.
 
-    Params:
+    Args:
         train: Train data.
         test: Test data.
         sample: Sales prices of test data.
@@ -101,6 +103,7 @@ def split_train_data(x, y):
         Returns a DataFrame that contains the estimated price, 
         the real price of the test data houses, and the absolute
         and percentage differences of real value and estimated values.
+
     """
 
 
@@ -114,21 +117,39 @@ def split_train_data(x, y):
 
 def save_prep_data_2_prep(df, name):
     """
+
     Takes a DataFrame and tne name. The df is separeted in 
     x and y data and numercial and categorical values.
 
-    Params:
+    Args:
         df: DataFrame from which categorical columns are to be selected.
         name: 'train' or 'test'
 
     Returns:
         no return values. Saves the DataFrame for train, test and the 
         numerical and categorical information to ../data/prep
+
     """
     #x_df, y_df, numerical_cols, categorical_cols = prepare_train_data(df)
     df.to_csv(f'data/prep/{name}.csv', index=False)
 
 def save_col_name(numerical_cols, categorical_cols, name):   
+    """
+    Save numerical and categorical column names to separate text files.
+
+    Args:
+        numerical_cols (list of str): List of numerical column names.
+        categorical_cols (list of str): List of categorical column names.
+        name (str): A name to append to the filenames for saving the columns.
+
+    Returns:
+        None
+
+    The function creates two text files:
+        - 'data/prep/numerical_cols_<name>.txt' containing the numerical column names.
+        - 'data/prep/categorical_cols_<name>.txt' containing the categorical column names.
+    Each column name is written on a new line in the respective file.
+    """
     # Save numerical columns to a file
     with open(f'data/prep/numerical_cols_{name}.txt', 'w', encoding="ascii") as f:
         for col in numerical_cols:
@@ -139,6 +160,7 @@ def save_col_name(numerical_cols, categorical_cols, name):
 
 def handle_missing_values(df):
     """
+
     Identifies numerical and categorical columns, and replaces NaN values.
     Numerical NaNs are replaced with the mean of the column.
     Categorical NaNs are replaced with the most frequent value of the column.
@@ -146,6 +168,7 @@ def handle_missing_values(df):
             df: DataFrame to process.
     Returns:
         DataFrame with NaN values handled.
+
     """
     numerical_cols = select_numerical(df).columns
     categorical_cols = select_categorical(df).columns
